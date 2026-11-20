@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lre"
+version = "0.1.0"
+description = "Generalization and calibration of latent reasoning (COCONUT, CODI)"
+authors = [{ name = "John Guerrerio" }, { name = "Robert Pearce" }]
+readme = "README.md"
+# Python 3.12: COCONUT (torch 2.5.1) and CODI (torch 2.7.1) have no Python 3.14 builds
+requires-python = ">=3.12,<3.13"
+# Ranges overlap COCONUT's pins (torch 2.5.1, transformers 4.46.2)
+# and CODI's pins (torch 2.7.1, transformers 4.52.4)
+dependencies = [
+    "torch>=2.5,<2.8",
+    "transformers>=4.46,<4.53",
+    "datasets",
+    "numpy",
+    "pandas",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ipykernel",
+    "matplotlib",
+    "nbstripout",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
