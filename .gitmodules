@@ -1,0 +1,9 @@
+[submodule "third_party/coconut"]
+	path = third_party/coconut
+	url = https://github.com/facebookresearch/coconut
+[submodule "third_party/codi"]
+	path = third_party/codi
+	url = https://github.com/zhenyi4/codi
+[submodule "third_party/reprobe"]
+	path = third_party/reprobe
+	url = https://github.com/ReProbe/ReProbe
