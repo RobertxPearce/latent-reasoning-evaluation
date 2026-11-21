@@ -27,10 +27,25 @@ conda activate lre
 pip install -e ".[dev]"
 ```
 
+## Code Organization
+
+Shared code lives in the `lre` package under `src/lre/`. Because it is installed in
+editable mode, scripts and notebooks import it directly (e.g.
+`from lre.metrics import accuracy`), and changes to the package take effect immediately.
+
+```
+src/lre/
+├── data/        # dataset loading, easy/hard splits, COCONUT and CODI formats
+└── metrics/     # answer extraction and accuracy
+tests/           # tests for the package, run with pytest
+scripts/         # data preparation, training, and evaluation
+notebooks/       # analysis and figures
+third_party/     # COCONUT, CODI, and ReProbe as git submodules
+```
+
 ## Acknowledgments and Licenses
 
-This repository references third-party code as git submodules. Their code is not copied
-here.
+This repository references third-party code as git submodules.
 - COCONUT: Hao et al., *Training Large Language Models to Reason in a Continuous Latent
   Space*. MIT License.
 - CODI: Shen et al., *CODI: Compressing Chain-of-Thought into Continuous Space via
